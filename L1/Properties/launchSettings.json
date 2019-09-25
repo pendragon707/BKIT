@@ -1,0 +1,19 @@
+{
+  "profiles": {
+    "L1": {
+      "commandName": "Project",
+      "commandLineArgs": "3 6 -1"
+    },
+    "newProfile1": {
+      "commandName": "Project",
+      "commandLineArgs": "10 20 40"
+    },
+    "newProfile2": {
+      "commandName": "Project",
+      "commandLineArgs": "2 0 -32"
+    },
+    "newProfile3": {
+      "commandName": "Executable"
+    }
+  }
+}
