@@ -9,7 +9,7 @@
       "commandLineArgs": "10 20 40"
     },
     "newProfile2": {
-      "commandName": "Project",
+      "commandName": "Snapshot Debugger (служба приложений Azure)",
       "commandLineArgs": "2 0 -32"
     },
     "newProfile3": {

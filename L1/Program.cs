@@ -16,7 +16,7 @@ namespace L1
                         args = args2;
                     }
                     Console.ForegroundColor = ConsoleColor.White;
-                    Console.WriteLine("Введите 3 коэффициента уравнения");
+                    Console.WriteLine("Введите 3 коэффициента уравнения (Нажимайте Enter)");
                         for (int k = 0; k < 3; k++)
                             args[k] = Console.ReadLine();       
                 }
@@ -49,19 +49,17 @@ namespace L1
                 return (-b + disc) / (2 * a);
             }
 
-            public static (double, double) KvadrRoot(double b, double c)
+            public static void KvadrRoot(double b, double c)
             {
                     double root;
                 if((-c/b) < 0)
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("Действительных корней нет");
-                    return (0, 0);
                 }
                     root = Math.Sqrt(-c / b);
                     Console.ForegroundColor = ConsoleColor.Green;
                     Console.WriteLine("Корни: {0}, {1}", root, -root);
-                    return (root, -root);
             }
 
             public static void Solution(double a, double b, double c)
