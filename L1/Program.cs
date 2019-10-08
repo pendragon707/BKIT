@@ -6,17 +6,50 @@ namespace L1
     {
         public class Functions
         {
-            public static double disc(double a, double b, double c)
+            public static void InputCoef(string[] args, double[] coefficients, bool success)
+            {
+                if (args.Length != 3 || !success)
+                {
+                    if (args.Length != 3)
+                    {
+                        string[] args2 = new string[3];
+                        args = args2;
+                    }
+                    Console.ForegroundColor = ConsoleColor.White;
+                    Console.WriteLine("Введите 3 коэффициента уравнения");
+                        for (int k = 0; k < 3; k++)
+                            args[k] = Console.ReadLine();       
+                }
+                Byte i = 0;
+                foreach (string Argument in args)
+                {
+                    success = Double.TryParse(Argument, out coefficients[i]);
+                    if(!success)
+                    {
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine($"Некорректный коээфициент под номером {i}. Пожалуйста, попробуйте снова.");
+                        InputCoef(args, coefficients, success);
+                        return;
+                    }
+                    Console.ForegroundColor = ConsoleColor.White;
+                    Console.Write("{0 }  ", Argument);
+                    i++;
+                }
+                Console.Write("- введённые коэффициенты");
+                Console.WriteLine();
+            }
+
+            public static double Disc(double a, double b, double c)
             {
                 return (Math.Pow(b, 2) - (4 * a * c));
             }
 
-            private static double rt(double a, double b, double disc)
+            private static double CalcRoot(double a, double b, double disc)
             {
                 return (-b + disc) / (2 * a);
             }
 
-            public static (double, double) kvadrRoot(double b, double c)
+            public static (double, double) KvadrRoot(double b, double c)
             {
                     double root;
                 if((-c/b) < 0)
@@ -27,24 +60,26 @@ namespace L1
                 }
                     root = Math.Sqrt(-c / b);
                     Console.ForegroundColor = ConsoleColor.Green;
-                    Console.WriteLine("Корни: {0}, {1}", Math.Sqrt(root), -Math.Sqrt(root));
+                    Console.WriteLine("Корни: {0}, {1}", root, -root);
                     return (root, -root);
             }
 
-            public static void Root(double a, double b, double c)
+            public static void Solution(double a, double b, double c)
             {
                 if (a == 0 && b == 0)
                 {
+                    Console.ForegroundColor = ConsoleColor.White;
                     Console.WriteLine("Корней бесконечно много");
                     return;
                 }
                 if (a == 0)
                 {
+                    Console.ForegroundColor = ConsoleColor.White;
                     Console.WriteLine("Уравнение квадратное");
-                    kvadrRoot(b, c);
+                    KvadrRoot(b, c);
                     return;
                 }
-                double disc = Functions.disc(a, b, c);
+                double disc = Functions.Disc(a, b, c);
                 if (disc < 0)
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
@@ -54,18 +89,20 @@ namespace L1
                 disc = Math.Sqrt(disc);
                 bool indicator = false;
                 double root;
-                root = rt(a, b, disc);
+                root = CalcRoot(a, b, disc);
                 if (root > 0)
                 {
+                    Console.ForegroundColor = ConsoleColor.White;
                     Console.Write("Корни:  ");
                     Console.ForegroundColor = ConsoleColor.Green;
                     Console.WriteLine("{0}, {1}", Math.Sqrt(root), -Math.Sqrt(root));
                     indicator = true;
                 }
-                root = rt(a, b, -disc);
+                root = CalcRoot(a, b, -disc);
                 if (root > 0)
                 {
-                    if(indicator == false) Console.Write("Корни:  ");
+                    Console.ForegroundColor = ConsoleColor.White;
+                    if (indicator == false) Console.Write("Корни:  ");
                     Console.ForegroundColor = ConsoleColor.Green;
                     Console.WriteLine("{0}, {1}", Math.Sqrt(root), -Math.Sqrt(root));
                     indicator = true;
@@ -79,35 +116,18 @@ namespace L1
 
             static void Main(string[] args)
             {
-                if (args.Length == 0)
-                {
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("Пожалуйста, введите коэффициенты уравнения");
-                    return;
-                }
-                Console.WriteLine("Введённые аргументы: ");
-                Double[] a = new Double[3];
-                Byte i = 0;
-                foreach (string Argument in args)
-                {
-                    Console.Write("{0 }  ", Argument);
-                    a[i] = Double.Parse(Argument);
-                    i++;
-                }
-                Console.WriteLine();
-//              Console.WriteLine(disc(a[0], a[1], a[2]));   //дискриминант
-                Functions.Root(a[0], a[1], a[2]);
+                Console.Title = "Подопригорова Н. ИУ5-34Б";
+                bool success = true;
+                Double[] coefficients = new double[3];
+                InputCoef(args, coefficients, success);
+                Console.Write("Дискриминант: ");
+                Console.WriteLine(Disc(coefficients[0], coefficients[1], coefficients[2]));   
+                Functions.Solution(coefficients[0], coefficients[1], coefficients[2]);
                 Console.ReadKey();
             }
         }
     }
 }
-
-/* a*x^4 + b*x^2 + c = 0 (проверить, чтобы первый подставной корень был >0)
- * ввод коэффициентов через аргументы командной строки
- * выход: дискриминант, корни уравнения (A=0, B=0)
- * менять цвет шрифта
- */
     
 
     
