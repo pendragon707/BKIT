@@ -88,7 +88,7 @@ namespace L1
                 bool indicator = false;
                 double root;
                 root = CalcRoot(a, b, disc);
-                if (root > 0)
+                if (root >= 0)
                 {
                     Console.ForegroundColor = ConsoleColor.White;
                     Console.Write("Корни:  ");
@@ -97,7 +97,7 @@ namespace L1
                     indicator = true;
                 }
                 root = CalcRoot(a, b, -disc);
-                if (root > 0)
+                if (root >= 0)
                 {
                     Console.ForegroundColor = ConsoleColor.White;
                     if (indicator == false) Console.Write("Корни:  ");

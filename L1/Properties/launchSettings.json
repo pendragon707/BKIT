@@ -27,6 +27,10 @@
     "newProfile6": {
       "commandName": "Project",
       "commandLineArgs": "6 7"
+    },
+    "newProfile7": {
+      "commandName": "Project",
+      "commandLineArgs": "2 -4 0"
     }
   }
 }
