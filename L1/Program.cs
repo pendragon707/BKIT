@@ -15,7 +15,6 @@ namespace L1
                         string[] args2 = new string[3];
                         args = args2;
                     }
-                    Console.ForegroundColor = ConsoleColor.White;
                     Console.WriteLine("Введите 3 коэффициента уравнения (Нажимайте Enter)");
                         for (int k = 0; k < 3; k++)
                             args[k] = Console.ReadLine();       
@@ -28,10 +27,10 @@ namespace L1
                     {
                         Console.ForegroundColor = ConsoleColor.Red;
                         Console.WriteLine($"Некорректный коээфициент под номером {i}. Пожалуйста, попробуйте снова.");
+                        Console.ResetColor();
                         InputCoef(args, coefficients, success);
                         return;
                     }
-                    Console.ForegroundColor = ConsoleColor.White;
                     Console.Write("{0 }  ", Argument);
                     i++;
                 }
@@ -56,23 +55,23 @@ namespace L1
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("Действительных корней нет");
+                    Console.ResetColor();
                 }
                     root = Math.Sqrt(-c / b);
                     Console.ForegroundColor = ConsoleColor.Green;
                     Console.WriteLine("Корни: {0}, {1}", root, -root);
+                    Console.ResetColor();
             }
 
             public static void Solution(double a, double b, double c)
             {
                 if (a == 0 && b == 0)
                 {
-                    Console.ForegroundColor = ConsoleColor.White;
                     Console.WriteLine("Корней бесконечно много");
                     return;
                 }
                 if (a == 0)
                 {
-                    Console.ForegroundColor = ConsoleColor.White;
                     Console.WriteLine("Уравнение квадратное");
                     KvadrRoot(b, c);
                     return;
@@ -82,6 +81,7 @@ namespace L1
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("Действительных корней нет");
+                    Console.ResetColor();
                     return;
                 }
                 disc = Math.Sqrt(disc);
@@ -90,25 +90,26 @@ namespace L1
                 root = CalcRoot(a, b, disc);
                 if (root >= 0)
                 {
-                    Console.ForegroundColor = ConsoleColor.White;
                     Console.Write("Корни:  ");
                     Console.ForegroundColor = ConsoleColor.Green;
                     Console.WriteLine("{0}, {1}", Math.Sqrt(root), -Math.Sqrt(root));
+                    Console.ResetColor();
                     indicator = true;
                 }
                 root = CalcRoot(a, b, -disc);
                 if (root >= 0)
                 {
-                    Console.ForegroundColor = ConsoleColor.White;
                     if (indicator == false) Console.Write("Корни:  ");
                     Console.ForegroundColor = ConsoleColor.Green;
                     Console.WriteLine("{0}, {1}", Math.Sqrt(root), -Math.Sqrt(root));
+                    Console.ResetColor();
                     indicator = true;
                 }
                 if (!indicator)
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("Действительных корней нет");
+                    Console.ResetColor();
                 }
             }
 
