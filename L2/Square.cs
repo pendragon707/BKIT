@@ -2,19 +2,13 @@
 
 namespace L2
 {
-    class Square : GeomFig, IPrint
+    class Square : Rectangle, IPrint
     {
-        double side;
-        public Square() { }
-        public Square(double s) { side = s; }
+        public Square(double s) : base(s, s) { }
+        
         public override string ToString()
         {
-
-            return "Длина стороны: " + side.ToString() + " Площадь: " + (side * side).ToString();
-        }
-        public void Print()
-        {
-            Console.WriteLine(ToString());
+            return "Длина стороны: " + this.Hight.ToString() + " Площадь: " + (this.Area()).ToString();
         }
     }
 
