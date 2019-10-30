@@ -10,6 +10,11 @@ namespace L2
         {
             return "Длина стороны: " + this.Hight.ToString() + " Площадь: " + (this.Area()).ToString();
         }
+        public void Print()
+        {
+            Console.WriteLine(ToString());
+        }
+
     }
 
 }
