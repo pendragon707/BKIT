@@ -57,8 +57,6 @@ namespace L3
         {
             StringBuilder b = new StringBuilder();
 
-            b.Append("z fixed\n");
-
             for (int k = 0; k < this.maxZ; k++)
             {
                 b.Append("z=" + k + "\n");
