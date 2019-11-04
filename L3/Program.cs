@@ -52,10 +52,9 @@ namespace L3
                         }
                     case 3:
                         {
-                            Console.WriteLine("\nМатрица");
                             Matrix3d<GeomFig> cube = new Matrix3d<GeomFig>(3, 3, 3, null);
                             cube[0, 0, 0] = rectangle;
-                            cube[1, 1, 1] = square;
+                            cube[1, 0, 1] = square;
                             cube[2, 2, 2] = circle;
                             Console.WriteLine(cube.ToString());
                             Console.WriteLine();
@@ -63,7 +62,6 @@ namespace L3
                         }
                     case 4:
                         {
-                            Console.WriteLine("\nСтек");
                             SimpleStack<GeomFig> stack = new SimpleStack<GeomFig>();
                             stack.Push(rectangle);
                             stack.Push(square);
