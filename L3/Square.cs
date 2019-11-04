@@ -15,7 +15,7 @@ namespace L3
         
         public override string ToString()
         {
-            return "Длина стороны: " + this.Hight.ToString() + " Площадь: " + (this.Area()).ToString();
+            return base.ToString() + "Длина стороны: " + this.Hight.ToString();
         }
     }
 

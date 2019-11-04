@@ -21,7 +21,7 @@ namespace L3
 
         public override string ToString()
         {
-            return "Тип: " + this.Type + " Площадь: " + this.Area().ToString();
+            return "Тип: " + this.Type + " Площадь: " + this.Area().ToString() + " ";
         }
 
         public int CompareTo(object obj)
