@@ -20,7 +20,7 @@ namespace L3
         }
         public override string ToString() 
         {           
-            return base.ToString() + " Радиус: " + radius.ToString();
+            return base.ToString() + "Радиус: " + radius.ToString();
         }
         public void Print()
         {
