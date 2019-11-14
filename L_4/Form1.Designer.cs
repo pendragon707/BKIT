@@ -42,7 +42,7 @@
             // 
             this.but_search.Location = new System.Drawing.Point(676, 36);
             this.but_search.Name = "but_search";
-            this.but_search.Size = new System.Drawing.Size(92, 26);
+            this.but_search.Size = new System.Drawing.Size(92, 31);
             this.but_search.TabIndex = 0;
             this.but_search.Text = "Поиск";
             this.but_search.UseVisualStyleBackColor = true;
@@ -79,7 +79,7 @@
             // 
             this.открытиеToolStripMenuItem.Name = "открытиеToolStripMenuItem";
             this.открытиеToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
-            this.открытиеToolStripMenuItem.Size = new System.Drawing.Size(252, 30);
+            this.открытиеToolStripMenuItem.Size = new System.Drawing.Size(231, 30);
             this.открытиеToolStripMenuItem.Text = "&Открыть";
             this.открытиеToolStripMenuItem.Click += new System.EventHandler(this.on_open_click);
             // 
