@@ -38,6 +38,13 @@ namespace L5
 
         static int Minimum(int a, int b, int c) => (a = a < b ? a : b) < c ? a : c;
 
+        static int Min(params int[] input)
+        {
+            int ret = input[0];
+            foreach (int a in input) if (a < ret) ret = a;
+            return ret;
+        }
+
         public static ShearchItemClass StrContains(string firstText, string secondText)
         {
             ShearchItemClass ShearchItem = new ShearchItemClass(firstText, 0);
