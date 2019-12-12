@@ -1,4 +1,4 @@
-﻿namespace L41
+﻿namespace DZ
 {
     partial class Form1
     {
@@ -123,7 +123,7 @@
             this.NumStream.Text = "10";
             this.NumStream.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.NumStream.UpDownAlign = System.Windows.Forms.LeftRightAlignment.Left;
-            this.NumStream.TextChanged += new System.EventHandler(this.Distance_TextChanged);
+ //           this.NumStream.TextChanged += new System.EventHandler(this.Distance_TextChanged);
             // 
             // FindType
             // 
